@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quad View — 4 sites na mesma tela</title>
+  <style>
+    :root{--gap:6px;--bg:#f4f6fb}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+    body{background:var(--bg);display:flex;flex-direction:column}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:var(--gap);padding:8px;height:100%}
+    .pane{background:#fff;border:1px solid #e1e4ea;position:relative;overflow:hidden;border-radius:8px}
+    .pane iframe{width:100%;height:100%;border:0}
+
+    @media (max-width:720px){
+      .grid{grid-template-columns:1fr;grid-template-rows:repeat(4,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="pane">
+      <iframe src="https://rodrigues182754.protheus.cloudtotvs.com.br:4010/TOTVS_BROKER_QUERY/status"></iframe>
+    </div>
+
+    <div class="pane">
+      <iframe src="http://192.168.1.7:3000/d/deu42au5drh1cd/monitor-aps-manaus?orgId=1"></iframe>
+    </div>
+
+    <div class="pane">
+      <iframe src="http://192.168.1.7:3000/d/aej753u4azocgb/monitor-lojas-de-roraima?kiosk&orgId=1"></iframe>
+    </div>
+
+    <div class="pane">
+      <iframe src="http://192.168.1.7:3000/d/YWN0gqz7k/links-de-internet-rc?orgId=1&refresh=5s"></iframe>
+    </div>
+  </div>
+</body>
+</html>
